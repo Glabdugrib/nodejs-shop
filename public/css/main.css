@@ -1,3 +1,7 @@
-* {
-    color: red;
+i.ti {
+   font-size: 19px;
+}
+
+.dropdown-item.active i.ti {
+   color: #206bc4 !important;
 }

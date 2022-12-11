@@ -1,33 +1,36 @@
-const express = require('express');
-
 const path = require('path');
+
+const express = require('express');
+const port = 3000;
 const bodyParser = require('body-parser');
+const expressLayouts = require('express-ejs-layouts');
 
 const User = require('./models/user');
 
 const app = express();
 const router = express.Router();
 
-// const users = [];
-
+app.use(expressLayouts);
 app.set('view engine', 'ejs');
+app.set('layout', './layouts/main')
+
+const adminRoutes = require('./routes/admin');
 
 app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 router.get('/', (req, res, next) => {
-   res.render('home.ejs', {
+   res.render('site/home', {
       pageTitle: 'Home',
       url: '/'
    });
 });
 
-router.get('/users', (req, res, next) => {
+router.get('/users/index', (req, res, next) => {
    User.fetchAll(users => {
-      res.render('users.ejs', {
+      res.render('site/users', {
          pageTitle: 'Users',
-         url: '/users',
+         url: '/users/index',
          users: users
       });
    });
@@ -44,9 +47,10 @@ router.post('/add-user', (req, res, next) => {
 });
 
 app.use(router)
+app.use(adminRoutes);
 
 app.use((req, res, next) => {
-   res.status(404).render('404.ejs', { pageTitle: 'Page not found', url: '' });
+   res.status(404).render('site/404', { pageTitle: 'Page not found', url: '' });
 })
 
-app.listen(3000);
+app.listen(port);
