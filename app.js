@@ -3,10 +3,12 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 
+const User = require('./models/user');
+
 const app = express();
 const router = express.Router();
 
-const users = [];
+// const users = [];
 
 app.set('view engine', 'ejs');
 
@@ -22,18 +24,22 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/users', (req, res, next) => {
-   console.log(users.length);
-   res.render('users.ejs', {
-      pageTitle: 'Users',
-      url: '/users',
-      users: users
+   User.fetchAll(users => {
+      res.render('users.ejs', {
+         pageTitle: 'Users',
+         url: '/users',
+         users: users
+      });
    });
 });
 
 router.post('/add-user', (req, res, next) => {
-   users.push({
-      username: req.body.username
-   });
+   let user = new User(req.body.username);
+   user.save();
+
+   // users.push({
+   //    username: req.body.username
+   // });
    res.status(302).redirect('/users');
 });
 
