@@ -1,13 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
+body {
+   background-image: url(../images/magic_library-wallpaper.jpg);
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.scrolled-down{
+   transform:translateY(-100%); transition: all 0.3s ease-in-out;
+ }
+ .scrolled-up{
+   transform:translateY(0); transition: all 0.3s ease-in-out;
+ }
+
 .navbar-brand.logo {
    font-weight: 400;
    font-size: 1.60rem;
    opacity: 0.95;
 }
 
-.navbar-brand.logo .logo-icon {
-   --tblr-icon-size: 2rem;
+.navbar .nav-link-title,
+.navbar .nav-link-icon {
+   color: rgba(255, 255, 255, 0.7);
+   text-shadow: 2px 3px 3px black;
+   transition: all ease-in-out .3s;
+   font-size: 1.1rem;
+}
+
+.nav-item:hover .nav-link-title,
+.nav-item:hover .nav-link-icon {
+   color: rgba(255, 255, 255, 1);
+   /* text-shadow: 2px 3px 5px black; */
 }
 
 .navbar-brand.logo .logo-text {
@@ -39,13 +62,16 @@ i.ti {
 }
 
 .product-card .card-description {
-   /* max-height: 60px; */
-   /* text-trucate */
    -webkit-line-clamp: 3;
    overflow : hidden;
    text-overflow: ellipsis;
    display: -webkit-box;
    -webkit-box-orient: vertical;
+}
+
+.product-card .badge-id {
+   top: 10px;
+   left: 10px;
 }
 
 .bg-image {

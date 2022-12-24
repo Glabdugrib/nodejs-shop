@@ -20,9 +20,18 @@
                </div>
                <div class="card-footer d-flex justify-content-center g-2">
                   <!-- TODO: aggiungere rotta dinamica -->
-                  <a class="btn btn-icon btn-outline-teal btn-pill p-2 me-3" title="Add to Cart">
-                     <i class="ti ti-plus"></i>
+                  <a href="/products/<%= product.id %>" class="btn btn-icon btn-outline-indigo btn-pill p-2 me-3" title="View Details">
+                     <i class="ti ti-eye"></i>
                   </a>
+                  <!-- <a class="btn btn-icon btn-outline-teal btn-pill p-2 me-3" title="Add to Cart">
+                     <i class="ti ti-plus"></i>
+                  </a> -->
+                  <form action="/cart" method="post">
+                     <input type="hidden" name="productId" value="<%= product.id %>">
+                     <button class="btn btn-icon btn-outline-teal btn-pill p-2" type="submit" title="Add to Cart">
+                        <i class="ti ti-plus"></i>
+                     </button>
+                  </form>
                </div>
             </div>
          </div>

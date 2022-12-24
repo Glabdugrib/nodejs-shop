@@ -3,10 +3,11 @@
       <% for(const product of products) { %>
          <div class="col-6 col-md-4 col-lg-3">
 
-            <div class="product-card card text-center border rounded-4 overflow-hidden">
-               <!-- CONTINUARE DA QUI -->
+            <div class="product-card card text-center border rounded-4 overflow-hidden position-relative">
+               <!-- CONTINUARE DA QUI PER ZOOM -->
                <img class="card-img-top img-fluid bg-image hover-zoom"
                   src="<%= product.imageUrl %>" alt="<%= product.title %>">
+               <span class="badge-id badge badge-pill bg-blue border border-white position-absolute fs-3"><%= product.id %></span>
                <div class="card-header justify-content-center">
                   <h5 class="card-title text-truncate">
                      <%= product.title %>
@@ -20,11 +21,12 @@
                </div>
                <div class="card-footer d-flex justify-content-center g-2">
                   <!-- TODO: aggiungere rotta dinamica -->
-                  <a href="/admin/edit-product" class="btn btn-icon btn-outline-yellow btn-pill p-2 me-3" title="Edit">
+                  <a href="/admin/edit-product/<%= product.id %>" class="btn btn-icon btn-outline-yellow btn-pill p-2 me-3" title="Edit">
                      <i class="ti ti-pencil"></i>
                   </a>
                   <!-- TODO: aggiungere rotta dinamica -->
                   <form action="/admin/delete-product" method="POST">
+                     <input type="hidden" value="<%= product.id %>" name="productId">
                      <button class="btn btn-icon btn-outline-danger btn-pill p-2" type="submit" title="Delete">
                         <i class="ti ti-trash"></i>
                      </button>
