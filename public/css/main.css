@@ -1,88 +1,123 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+.font-fatface {
+  font-family: 'Abril Fatface', cursive; }
 
 body {
-   background-image: url(../images/magic_library-wallpaper.jpg);
-   background-size: cover;
-   background-repeat: no-repeat;
-}
+  background-image: url(../images/magic_library-wallpaper.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative; }
+  body::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.2; }
 
-.scrolled-down{
-   transform:translateY(-100%); transition: all 0.3s ease-in-out;
- }
- .scrolled-up{
-   transform:translateY(0); transition: all 0.3s ease-in-out;
- }
+.scrolled-down {
+  transform: translateY(-100%);
+  transition: all 0.3s ease-in-out; }
 
-.navbar-brand.logo {
-   font-weight: 400;
-   font-size: 1.60rem;
-   opacity: 0.95;
-}
+.scrolled-up {
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out; }
 
-.navbar .nav-link-title,
-.navbar .nav-link-icon {
-   color: rgba(255, 255, 255, 0.7);
-   text-shadow: 2px 3px 3px black;
-   transition: all ease-in-out .3s;
-   font-size: 1.1rem;
-}
+.navbar {
+  background-color: rgba(2, 0, 19, 0.3);
+  backdrop-filter: blur(5px); }
+  .navbar .navbar-toggler {
+    color: rgba(255, 255, 255, 0.7); }
+    .navbar .navbar-toggler:hover {
+      color: white; }
+  .navbar .nav-link-title {
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 2px 3px 3px black;
+    transition: all ease-in-out .3s;
+    font-size: 1.1rem; }
+  .navbar .nav-link-icon {
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 2px 3px 3px black;
+    transition: all ease-in-out .3s;
+    font-size: 1.1rem; }
+  .navbar .logo {
+    font-weight: 400;
+    font-size: 1.80rem; }
+    .navbar .logo a {
+      text-decoration: none;
+      text-shadow: 2px 3px 3px black; }
+      .navbar .logo a:hover .logo-text {
+        color: white; }
+      .navbar .logo a .logo-text {
+        color: rgba(255, 255, 255, 0.7);
+        transition: all ease-in-out .3s; }
+      .navbar .logo a .logo-icon {
+        font-size: 34px;
+        color: rgba(252, 79, 79, 0.7); }
+  .navbar .nav-item:hover .nav-link-title {
+    color: white; }
+  .navbar .nav-item:hover .nav-link-icon {
+    color: white; }
+  .navbar .nav-item .dropdown-menu {
+    background-color: rgba(2, 0, 19, 0.3); }
+  .navbar .dropdown-item.active i.ti {
+    color: #206bc4 !important; }
+  .navbar .dropdown-item.active .nav-link-title {
+    font-weight: 500; }
+  .navbar .nav-link {
+    min-width: 7rem !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 0 !important; }
 
-.nav-item:hover .nav-link-title,
-.nav-item:hover .nav-link-icon {
-   color: rgba(255, 255, 255, 1);
-   /* text-shadow: 2px 3px 5px black; */
-}
-
-.navbar-brand.logo .logo-text {
-   font-family: 'Abril Fatface', cursive;
-}
-
+.jumbo {
+  color: white;
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.1);
+  text-shadow: 2px 3px 3px black;
+  box-shadow: 2px 3px 3px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 15px; }
+  .jumbo .jumbo-title {
+    font-size: 60px; }
+  .jumbo .jumbo-text {
+    font-size: 24px; }
 
 i.ti {
-   font-size: 19px;
-}
-
-.dropdown-item.active i.ti {
-   color: #206bc4 !important;
-}
-
-.dropdown-item.active .nav-link-title {
-   font-weight: 500;
-}
-
-.nav-link {
-   min-width: 7rem !important;
-}
+  font-size: 19px; }
 
 .card-img-top {
-   width: 100%;
-   height: 10vw;
-   min-height: 100px;
-   object-fit: cover;
-}
+  width: 100%;
+  height: 10vw;
+  min-height: 100px;
+  object-fit: cover; }
 
 .product-card .card-description {
-   -webkit-line-clamp: 3;
-   overflow : hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-}
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical; }
 
 .product-card .badge-id {
-   top: 10px;
-   left: 10px;
-}
+  top: 10px;
+  left: 10px; }
 
 .bg-image {
-   position: relative;
-   overflow: hidden;
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-position: 50%;
-}
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%; }
 
-/* .hover-zoom:hover {
-   transition: all 0.3s linear;
-   transform: scale(1.1);
-} */
+.footer .credits {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 2px 3px 3px black; }
+  .footer .credits a {
+    color: rgba(252, 79, 79, 0.7);
+    text-decoration: none;
+    font-weight: 700; }
+    .footer .credits a:hover {
+      color: #fc4f4f; }

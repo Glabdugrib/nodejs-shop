@@ -25,13 +25,10 @@ exports.getProduct = (req, res, next) => {
 };
 
 exports.getIndex = (req, res, next) => {
-   Product.fetchAll(products => {
-      res.render('shop/index', {
-         pageSection: 'Shop',
-         pageTitle: 'Products',
-         path: '/',
-         products: products,
-      });
+   res.render('shop/index', {
+      pageSection: '',
+      pageTitle: '',
+      path: '/',
    });
 };
 
